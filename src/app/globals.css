@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  --color-paper: #f2f3ef;
+  --color-card: #fcfcfa;
+  --color-ink: #1a2321;
+  --color-ink-soft: #51605b;
+  --color-line: #dfe2da;
+
+  --color-accent: #c7372a;
+  --color-accent-dark: #a12a20;
+  --color-ice: #16697a;
+  --color-ice-soft: #e3eef0;
+
+  --color-ok: #2f7d46;
+  --color-warn: #a8730f;
+  --color-bad: #c03028;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@layer components {
+.inp {
+  @apply w-full rounded-md border border-line bg-white px-2.5 py-1.5 text-sm text-ink outline-none transition focus:border-ice focus:ring-2 focus:ring-ice/20;
+}
+
+.num {
+  @apply rounded-md border border-line bg-white px-2 py-1.5 text-right font-mono text-sm text-ink tabular-nums outline-none transition focus:border-ice focus:ring-2 focus:ring-ice/20;
+}
+
+.btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-md border border-line bg-white px-3 py-1.5 text-sm font-semibold text-ink transition hover:border-ink-soft/50 hover:bg-paper active:translate-y-px disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-primary {
+  @apply inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-md border border-accent bg-accent px-3 py-1.5 text-sm font-semibold text-white transition hover:border-accent-dark hover:bg-accent-dark active:translate-y-px disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-danger {
+  @apply inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-md border border-transparent bg-transparent px-3 py-1.5 text-sm font-semibold text-bad transition hover:bg-bad/10 active:translate-y-px disabled:pointer-events-none disabled:opacity-50;
+}
+
+.card {
+  @apply rounded-lg border border-line bg-card shadow-[0_1px_2px_rgba(20,30,25,0.05)];
+}
+
+.th {
+  @apply whitespace-nowrap border-b border-line px-2 py-1.5 text-[11px] font-bold tracking-wide text-ink-soft uppercase;
+}
+
+.td {
+  @apply whitespace-nowrap border-b border-line/70 px-2 py-1.5 text-sm;
+}
+
+.td-num {
+  @apply whitespace-nowrap border-b border-line/70 px-2 py-1.5 text-right font-mono text-sm tabular-nums;
+}
+
+.badge {
+  @apply inline-flex items-center rounded px-1.5 py-0.5 text-[11px] font-bold;
+}
+}
